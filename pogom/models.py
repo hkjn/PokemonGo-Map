@@ -108,6 +108,9 @@ def parse_map(map_dict, iteration_num, step, step_location):
     pokestops = {}
     gyms = {}
     scanned = {}
+    if not map_dict['responses']:
+        log.error('Empty response to map request')
+        return
     if 'GET_MAP_OBJECTS' not in map_dict['responses']:
         all_keys = map_dict['responses'].keys()
         raise KeyError(
