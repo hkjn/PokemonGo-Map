@@ -108,7 +108,10 @@ def parse_map(map_dict, iteration_num, step, step_location):
     pokestops = {}
     gyms = {}
     scanned = {}
-
+    if 'GET_MAP_OBJECTS' not in map_dict['responses']:
+        all_keys = map_dict['responses'].keys()
+        raise KeyError(
+            'No GET_MAP_OBJECTS entry in response: {}'.format(all_keys))
     cells = map_dict['responses']['GET_MAP_OBJECTS']['map_cells']
     for cell in cells:
         for p in cell.get('wild_pokemons', []):
