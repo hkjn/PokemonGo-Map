@@ -33,7 +33,7 @@ def calculate_lng_degrees(lat):
 
 def send_map_request(api, position):
     try:
-        log.debug('Sending request to PGoApi with position %s..', position)
+        log.info('Sending request to PGoApi with position %s..', position)
         api.set_position(*position)
         api.get_map_objects(latitude=f2i(position[0]),
                             longitude=f2i(position[1]),
