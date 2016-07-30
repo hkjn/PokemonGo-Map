@@ -36,6 +36,7 @@ if __name__ == '__main__':
     logging.getLogger("pogom.pgoapi.pgoapi").setLevel(logging.WARNING)
     logging.getLogger("pogom.pgoapi.rpc_api").setLevel(logging.INFO)
     logging.getLogger('werkzeug').setLevel(logging.ERROR)
+    logging.getLogger('search').setLevel(logging.DEBUG)
 
     args = get_args()
 
