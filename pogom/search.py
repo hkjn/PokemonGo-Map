@@ -113,8 +113,8 @@ def search_thread(args):
             try:
                 sem.acquire()
                 parse_map(response_dict, i, step, step_location)
-            except KeyError:
-                log.error('Scan step {:d} failed. Response dictionary key error.'.format(step))
+            except KeyError as ke:
+                log.error('Scan step {:d} failed. Response dictionary key error: {}'.format(step, ke))
                 failed_consecutive += 1
                 if(failed_consecutive >= config['REQ_MAX_FAILED']):
                     log.error('Niantic servers under heavy load. Waiting before trying again')
