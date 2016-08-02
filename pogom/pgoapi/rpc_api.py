@@ -80,7 +80,7 @@ class RpcApi:
     
         request_proto = self._build_main_request(subrequests, player_position)
         response = self._make_rpc(endpoint, request_proto)
-        
+        selg.log.info('Sending request to %s..', endpoint)
         response_dict = self._parse_main_request(response, subrequests)
         
         return response_dict
